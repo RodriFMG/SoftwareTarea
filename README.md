@@ -139,5 +139,20 @@
 ![image](https://github.com/user-attachments/assets/f6513b6e-a87a-4885-8ce1-1ff1cec1088d)
 
 
+## Casos de errores adicionales:
+- La URL esta mal colocada o no existe. ![image](https://github.com/user-attachments/assets/8672b2c1-1a40-46af-801e-234b69cc75cb)
+- El CSV no fue encontrado en la ruta proporcionada: ![image](https://github.com/user-attachments/assets/17524d74-21a0-40aa-807b-a8bac0429714)
+
+
+## Testing:
+
+- Para el CSV en las coordenadas: ![image](https://github.com/user-attachments/assets/2214b759-5960-4b52-bc2b-34b571bf636f)
+- Para la API en las coordenadas: ![image](https://github.com/user-attachments/assets/9265a6e4-777f-4b9b-8b45-96df2fb7aec9)
+
+- Para el CSV en el cálculo de distancia entre ciudades: ![image](https://github.com/user-attachments/assets/0cfde58d-b06e-4afc-8d3b-de776c1b47f2)
+- Para la API en el cálculo de distancias entre ciudades: ![image](https://github.com/user-attachments/assets/c4498e6d-f0fd-43fd-bb1f-1d80af8eabad)
+
+
+
 
 

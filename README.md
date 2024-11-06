@@ -5,7 +5,7 @@
 
 ## TestCase
 
-| Test Case                          | Coordenadas de una ciudad en un CSV                                                                 |
+| Test Case                          | Coordenadas de una ciudad existente en un CSV                                                                 |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|
 | **Precondición**                   | La ruta del CSV debe estar bien colocada.                                                           |
 | **Test Steps**                     | 1. Colocar la ruta del URL                                                                          |
@@ -17,3 +17,15 @@
 
 ![image](https://github.com/user-attachments/assets/dd812e09-6e80-4856-a82d-d31abc7b2e18)
 
+## TestCase
+
+| Test Case                          | Coordenadas de una ciudad no existente en un CSV                                                                 |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **Precondición**                   | La ruta del CSV debe estar bien colocada.                                                           |
+| **Test Steps**                     | 1. Colocar la ruta del URL                                                                          |
+|                                    | 2. Colocar el país de la ciudad                                                                     |
+|                                    | 3. Colocar el nombre de la ciudad                                                                   |
+| **Test Data**                      | CSV: `./worldcities.csv`<br>Pais: `India`<br>Ciudad: `Mumba`                                      |
+| **Expected Result**                | Error: No se encontró la ciudad Mumba en el CSV
+ |
+![image](https://github.com/user-attachments/assets/c7d9a1e2-402a-4e32-85fb-229742138edf)

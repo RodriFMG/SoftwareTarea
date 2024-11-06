@@ -50,13 +50,14 @@ function funcionooooo(RutaCSV_or_URL) {
 }
 function CityPosition(RutaCSV_or_URL, nombrePais, nombreCiudad) {
     return __awaiter(this, void 0, void 0, function () {
-        var InfoCity, error_1;
+        var InfoCity;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
                     InfoCity = funcionooooo(RutaCSV_or_URL);
-                    return [4 /*yield*/, InfoCity.LoadInfoCity(RutaCSV_or_URL, nombreCiudad)];
+                    return [4 /*yield*/, InfoCity.LoadInfoCity(RutaCSV_or_URL, nombreCiudad).catch(function (err) {
+                            throw new Error(err);
+                        })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/, {
@@ -65,10 +66,6 @@ function CityPosition(RutaCSV_or_URL, nombrePais, nombreCiudad) {
                             nombrePais: nombrePais,
                             nombreCiudad: nombreCiudad,
                         }];
-                case 2:
-                    error_1 = _a.sent();
-                    throw new Error("No se pudo abrir el archivo CSV, el URL, o no se encontr\u00F3 la ciudad pedida.");
-                case 3: return [2 /*return*/];
             }
         });
     });

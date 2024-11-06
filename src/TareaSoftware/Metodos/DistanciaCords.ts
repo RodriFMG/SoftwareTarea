@@ -11,7 +11,7 @@ export function DistanceCities(CSV_or_URL : string, city1 : string, country1 : s
 
 
     }).catch(error => {
-        console.log(`Error: ${error}`);
+        console.log(`${error}`)
     })
 }
 
@@ -23,7 +23,7 @@ export function CordsCity(CSV_or_URL : string, country : string, city : string) 
             console.log(`Longitud: ${data.longitud}`);
         }
     ).catch(error => {
-        console.log(`Error: ${error}`);
+        console.log(`${error}`)
     });
 }
 

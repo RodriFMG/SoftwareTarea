@@ -68,15 +68,26 @@ var InfoCitiesAPI = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 return [2 /*return*/, new Promise(function (resolve, reject) {
                         (0, fetch_1.FetchApi)(URL).then(function (data) {
+                            if (!data)
+                                reject("Error en el URL de la API, datos no encontrados.");
+                            if (!Array.isArray(data) || data.length === 0) {
+                                return reject("Error: la API devolvió una estructura de datos inesperada o vacía.");
+                            }
+                            var cityFound = false;
                             data.forEach(function (city) {
                                 if (city.name.toLowerCase().trim() === CityName.toLowerCase().trim()) {
                                     _this.latitud = Number(city.lat);
                                     _this.longitud = Number(city.lon);
-                                    resolve();
+                                    cityFound = true;
                                 }
                             });
+                            if (!cityFound)
+                                reject("No se econtró la ciudad" +
+                                    " ".concat(CityName, " en la API"));
+                            else
+                                resolve();
                         }).catch(function (error) {
-                            reject(error);
+                            reject("Error en el URL de la API, datos no encontrados.");
                         });
                     })];
             });

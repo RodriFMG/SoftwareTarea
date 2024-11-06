@@ -10,7 +10,7 @@ function DistanceCities(CSV_or_URL, city1, country1, city2, country2) {
         console.log("Latitud y longitud de ".concat(data[0].nombreCiudad, " from ").concat(data[0].nombrePais, ": ").concat(data[0].latitud, " y ").concat(data[0].longitud));
         console.log("Latitud y longitud de ".concat(data[1].nombreCiudad, " from ").concat(data[1].nombrePais, ": ").concat(data[1].latitud, " y ").concat(data[1].longitud));
     }).catch(function (error) {
-        console.log("Error: ".concat(error));
+        console.log("".concat(error));
     });
 }
 function CordsCity(CSV_or_URL, country, city) {
@@ -20,6 +20,6 @@ function CordsCity(CSV_or_URL, country, city) {
         console.log("Latitud: ".concat(data.latitud));
         console.log("Longitud: ".concat(data.longitud));
     }).catch(function (error) {
-        console.log("Error: ".concat(error));
+        console.log("".concat(error));
     });
 }

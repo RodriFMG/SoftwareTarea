@@ -21,19 +21,30 @@ export class InfoCitiesAPI extends CityClass{
 
             FetchApi(URL).then(data =>{
 
+                if(!data) reject("Error en el URL de la API, datos no encontrados.")
+
+                if (!Array.isArray(data) || data.length === 0) {
+                    return reject("Error: la API devolvió una estructura de datos inesperada o vacía.");
+                }
+
+                let cityFound = false;
                 data.forEach(city => {
 
                     if(city.name.toLowerCase().trim() === CityName.toLowerCase().trim()){
                         this.latitud = Number(city.lat);
                         this.longitud = Number(city.lon);
-
-                        resolve();
+                        cityFound = true;
                     }
 
                 })
 
+                if(!cityFound) reject("No se econtró la ciudad" +
+                    ` ${CityName} en la API`)
+                else resolve();
+
+
             }).catch(error => {
-                reject(error);
+                reject("Error en el URL de la API, datos no encontrados.");
             });
 
         })

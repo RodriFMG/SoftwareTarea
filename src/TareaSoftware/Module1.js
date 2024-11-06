@@ -55,6 +55,9 @@ function DistanceBetweenCities(CSV_or_URL, c1, p1, c2, p2) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
+                    // igual que el reject y resolve del return new Promise (usarlo si mi función no tiene await :b).
+                    if (c1 === c2)
+                        throw new Error("Debe colocar 2 ciudades distintas para el cálculo.");
                     return [4 /*yield*/, (0, Module2_1.CityPosition)(CSV_or_URL, p1, c1)];
                 case 1:
                     v1 = _a.sent();
@@ -62,7 +65,8 @@ function DistanceBetweenCities(CSV_or_URL, c1, p1, c2, p2) {
                 case 2:
                     v2 = _a.sent();
                     distance = CalculateDistance(v1.latitud, v1.longitud, v2.latitud, v2.longitud);
-                    return [2 /*return*/, [v1, v2, distance]];
+                    // .toFixed(2) para redondear a 2 decimales.
+                    return [2 /*return*/, [v1, v2, parseFloat(distance.toFixed(2))]];
                 case 3:
                     error_1 = _a.sent();
                     // El throw sirve para rescatar errores.

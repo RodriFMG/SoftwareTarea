@@ -69,19 +69,25 @@ var InfoCitiesCSV = /** @class */ (function (_super) {
                 return [2 /*return*/, new Promise(function (resolve, reject) {
                         fs.readFile(RutaCSV, 'utf-8', function (err, data) {
                             if (err) {
-                                reject(err);
+                                reject("La ruta del CSV es incorrecta.");
                                 return;
                             }
                             var dataFile = data.split('\n');
+                            var cityFound = false;
                             dataFile.forEach(function (City) {
                                 var CityInfo = City.split(',');
                                 var CityName = CityInfo[1].replace(/"/g, '').toLowerCase().trim();
                                 if (CityName === CtNm.toLowerCase().trim()) {
                                     _this.latitud = Number(CityInfo[2].replace(/"/g, ''));
                                     _this.longitud = Number(CityInfo[3].replace(/"/g, ''));
-                                    resolve();
+                                    cityFound = true;
                                 }
                             });
+                            if (!cityFound)
+                                reject("No se encontr\u00F3 la ciudad ".concat(CtNm, " en el") +
+                                    " CSV.");
+                            else
+                                resolve();
                         });
                     })];
             });

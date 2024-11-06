@@ -28,12 +28,15 @@ export async function DistanceBetweenCities(CSV_or_URL : string,
     try{ // No se puede usar await dentro de un new Promise, así que usar mejor try catch ;-;. En si el try catch funcionaría
         // igual que el reject y resolve del return new Promise (usarlo si mi función no tiene await :b).
 
+        if(c1 === c2) throw new Error("Debe colocar 2 ciudades distintas para el cálculo.");
+
         const v1 = await CityPosition(CSV_or_URL, p1, c1);
         const v2 = await CityPosition(CSV_or_URL, p2, c2);
 
         const distance : number = CalculateDistance( v1.latitud, v1.longitud, v2.latitud, v2.longitud);
 
-        return [v1, v2, distance];
+        // .toFixed(2) para redondear a 2 decimales.
+        return [v1, v2, parseFloat(distance.toFixed(2))];
 
     }catch (error){
 

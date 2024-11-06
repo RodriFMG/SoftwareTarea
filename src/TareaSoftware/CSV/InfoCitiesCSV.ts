@@ -17,13 +17,15 @@ export class InfoCitiesCSV extends CityClass{
         return new Promise((resolve, reject) => {
 
             fs.readFile(RutaCSV, 'utf-8', (err, data) => {
+
                 if(err) {
-                    reject(err);
+                    reject("La ruta del CSV es incorrecta.");
                     return;
                 }
 
                 const dataFile = data.split('\n');
 
+                let cityFound = false;
                 dataFile.forEach(City => {
 
                     const CityInfo = City.split(',');
@@ -31,14 +33,20 @@ export class InfoCitiesCSV extends CityClass{
                     const CityName = CityInfo[1].replace(/"/g, '').toLowerCase().trim();
 
                     if(CityName === CtNm.toLowerCase().trim()){
+
                         this.latitud = Number(CityInfo[2].replace(/"/g, ''));
                         this.longitud = Number(CityInfo[3].replace(/"/g, ''));
-
-                        resolve();
+                        cityFound = true;
 
                     }
 
+
                 })
+
+                if(!cityFound) reject(`No se encontró la ciudad ${CtNm} en el` +
+                    " CSV.");
+                else resolve();
+
 
             })
 

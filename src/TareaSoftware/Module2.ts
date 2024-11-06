@@ -27,20 +27,19 @@ function funcionooooo(RutaCSV_or_URL : string) : CityClass{
 export async function CityPosition(RutaCSV_or_URL: string, nombrePais: string, nombreCiudad: string): Promise<Ciudad> {
 
 
-    try{
-        const InfoCity =  funcionooooo(RutaCSV_or_URL);
 
-        await InfoCity.LoadInfoCity(RutaCSV_or_URL, nombreCiudad);
+    const InfoCity =  funcionooooo(RutaCSV_or_URL);
 
-        return {
+    await InfoCity.LoadInfoCity(RutaCSV_or_URL, nombreCiudad).catch(err => {
+            throw new Error(err);
+    });
+
+    return {
             latitud: InfoCity.latitud,
             longitud: InfoCity.longitud,
             nombrePais: nombrePais,
             nombreCiudad: nombreCiudad,
-        };
-    } catch (error){
+    };
 
-        throw new Error(`No se pudo abrir el archivo CSV, el URL, o no se encontró la ciudad pedida.`)
-    }
 
 }

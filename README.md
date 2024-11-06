@@ -120,7 +120,24 @@
 |                       | 3. Colocar el país de la ciudad 1                                        |
 |                       | 4. Colocar el nombre de la ciudad 2                                      |
 |                       | 5. Colocar el país de la ciudad 2                                        |
-| **Test Data**         | API: `https://nominatim.openstreetmap.org/search?q=lima,peru&format=json`<br>Ciudad1: `Lima Metropolitana`<br>País1: `Peru`<br>Ciudad2: `Lima`<br>País2: `Peru` |
-| **Expected Result**   | La distancia entre Mumbai y London es: 1183.08.<br>Latitud y longitud de Lima Metropolitana en Peru: -12.0621065 y -77.0365256<br>Latitud y longitud de Lima en Peru: -12.0002116 y  -76.8330796 |
+| **Test Data**         | API: `https://nominatim.openstreetmap.org/search?q=lima,peru&format=json`<br>Ciudad1: `Lima Metr`<br>País1: `Peru`<br>Ciudad2: `Lima`<br>País2: `Peru` |
+| **Expected Result**   | Error: No se econtró la ciudad Lima Metr en la API |
+
+![image](https://github.com/user-attachments/assets/eb54e5c5-d306-4804-a13e-e172c3246241)
+
+| Test Case             | Distancia entre ciudad con el mismo nombre en la API                                  |
+|-----------------------|--------------------------------------------------------------------------|
+| **Precondición**      | La API debe estar funcionando correctamente.                                 |
+| **Test Steps**        | 1. Colocar el enlace URL de la API                                              |
+|                       | 2. Colocar el nombre de la ciudad 1                                      |
+|                       | 3. Colocar el país de la ciudad 1                                        |
+|                       | 4. Colocar el nombre de la ciudad 2                                      |
+|                       | 5. Colocar el país de la ciudad 2                                        |
+| **Test Data**         | API: `https://nominatim.openstreetmap.org/search?q=lima,peru&format=json`<br>Ciudad1: `Lima Metropolitana`<br>País1: `Peru`<br>Ciudad2: `Lima Metropolitana`<br>País2: `Peru` |
+| **Expected Result**   | Error: Debe colocar 2 ciudades distintas para el cálculo. |
+
+![image](https://github.com/user-attachments/assets/f6513b6e-a87a-4885-8ce1-1ff1cec1088d)
+
+
 
 
